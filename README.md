@@ -17,10 +17,17 @@ The status of tickets booking i.e. Usernames along with the number of tickets th
 Future Enhancements:-
 
 #Registering users before signing up.
-#Assigning accounts dynamically on Ethereum to the registered users from the web application.  
+
+#Assigning accounts dynamically on Ethereum to the registered users from the web application.
+  
 #Creating two types of users i.e. "Organiser" and "Buyer."
+
 #Organisers can initiate multiple concerts on the website.
+
 #To verify the identity of Organisers, some proof of id documnets can be asked to upload at the site before organising any concert.
+
 #Different status can be visible on the site to different users according to the user type.
+
 #Direct fetching of status from Ethereum Blockchain.
+
 #Providing tokens with ticket numbers to the buyers of tickets.
