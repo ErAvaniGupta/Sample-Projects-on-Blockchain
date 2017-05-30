@@ -2,7 +2,6 @@
 
 This is a basic distributed application built using Ethereum and MEAN technologies.
 ----------------------------------------------------------
-
 Description
 
 "BookMyConcert" Dapp is designed with the intent of understanding end to end data flow and working of Ethereum.
@@ -14,8 +13,9 @@ The request will be sent to Server where the contract function for booking ticke
 After successful booking of tickets on Ethereum blockchain, a particular event will be fired. And then the data will be stored in MongoDb database also.
 The status of tickets booking i.e. Usernames along with the number of tickets they have bought will be visible on front end.
 Structuring of project and including package.json file is in progress.
-----------------------------------------------------------
 
+
+----------------------------------------------------------
 Future Enhancements:-
 
 
