@@ -1,0 +1,98 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="bookMyConcert">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Concert Bookings Dapp</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #todo-list              { margin-bottom:30px; }
+		
+		table, th , td {
+		border: 1px solid grey;
+		border-collapse: collapse;
+		padding: 5px;
+		}
+		table tr:nth-child(odd) {
+		background-color: #f1f1f1;
+		}
+		table tr:nth-child(even) {
+		background-color: #ffffff;
+		}
+		
+    </style>
+	
+	
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script> <!-- load controller page -->
+
+</head>
+
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- HEADER-->
+        <div class="jumbotron text-center">
+            <h1>Book My Concert<span class="label label-info"></span></h1>
+			<img src="image.jpg" style="width:100%;height:128px;">
+        </div>
+		
+        <div id="todo-list" class="row" style="float:left; width:20%;">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <!-- To Get Status of Tickets Booking of Concert -->
+	 <table width ="200">
+	 
+		<thead>
+			<tr>
+				<th st-sort="firstName">Viewer</th>
+				<th st-sort="lastName">Status of Tickets Booking</th>
+			</tr>
+		</thead>	
+	 
+	 
+		<tbody ng-repeat="viewer in viewers">
+			<tr><td>{{viewer.username}}</td><td>{{viewer.ticketsBought}}</td></tr>
+		</tbody>
+	</table>
+ 
+            </div>
+        </div>
+
+        <!-- Form To Get Viewer Information and Number of Tickets Viewer Wants to Buy -->
+        <div id="todo-form" class="row"style="float:left; width:80%; margin-left:10px;">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                       
+                        <input type="text" class="form-control input-lg text-center" placeholder="Username" ng-model="formData.user">
+						<input type="text" class="form-control input-lg text-center" placeholder="Password" ng-model="formData.pass">
+						<input type="text" class="form-control input-lg text-center" placeholder="Number of Tickets" ng-model="formData.numTickets">
+                    
+					</div>
+
+                    <!-- bookTickets() WILL Book Tickets -->
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="bookTickets()">Book Tickets</button>
+                </form>
+            </div>
+        
+			
+		
+		
+		</div>
+
+    </div>
+
+</body>
+</html>

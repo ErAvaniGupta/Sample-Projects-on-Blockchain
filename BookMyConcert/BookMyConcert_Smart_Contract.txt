@@ -1,0 +1,95 @@
+//smart contract for booking concert tickets
+
+pragma solidity ^0.4.0;
+contract concert {
+
+	address organiser;  		//account to which cost of tickets will be transferred
+	uint public numTickets; 	//total number of tickets of concert
+	uint public ticketsLeft;  	//number of tickets left
+	uint ticketPrice;      		//cost per ticket
+	
+	
+	
+	uint ticketsCost;
+	mapping(address => uint) public balances;
+	address public buyer1;
+	address public buyer2;
+	address public buyer3;
+	uint supply;
+	
+	event TicketsBooked(address addr, uint numOfTicketsBooked, uint numOfTicketsLeft);  
+    event TicketsNotBooked(string reason);
+	
+	//constructor to initialize three buyer's account with amount
+	
+	function concert (address _organiser, uint numOfTickets, uint _priceOfTickets, address _buyer1, address _buyer2, address _buyer3, uint _supply)
+	{
+		organiser = _organiser;
+		numTickets = numOfTickets;
+		ticketsLeft = numOfTickets;
+		ticketPrice = _priceOfTickets;
+		balances[_buyer1] = _supply;
+		balances[_buyer2] = _supply;
+		balances[_buyer3] = _supply;
+	
+	}
+
+	function buyTickets (uint numOfTickets) returns (string)
+	{
+		ticketsCost = 0;
+		ticketsCost = ticketPrice * numOfTickets;
+		
+		if(balances[msg.sender] < ticketsCost ) {											//check if account balance of buyer is less than the tickets cost
+		TicketsNotBooked("Transaction Unsuccessful : Low Balance in Account!!!");			//event fired on unsuccessful booking of tickets with reason
+		return "Transaction Unsuccessful : Low Balance in Account!!!";
+		}
+		
+		if(ticketsLeft < numOfTickets || ticketsLeft == 0) {								//check if number of tickets requested for booking is greater than the number of total tickets left
+		TicketsNotBooked("Transaction Unsuccessful : Less Tickets Left!!!");
+		return "Transaction Unsuccessful : Less Tickets Left!!!";							//event fired on unsuccessful booking of tickets with reason
+		}
+		
+		balances[msg.sender] = balances[msg.sender] - ticketsCost;							//deducted tickets cost from the account of the buyer(sender of the request)
+		balances[organiser]  = balances[organiser] + ticketsCost;							//transferred amount(tickets cost) to the account of concert organiser
+		ticketsLeft = ticketsLeft - numOfTickets;
+        
+		TicketsBooked(msg.sender, numOfTickets, ticketsLeft);								//event fired on successful booking of tickets
+                                  				
+		return "Transaction Successful : Tickets Booked!!!";
+			
+		
+	
+	
+	
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
