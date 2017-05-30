@@ -13,7 +13,7 @@ The project is that already registered users on Ethereum can login to the site a
 The request will be sent to Server where the contract function for booking tickets will be called. 
 After successful booking of tickets on Ethereum blockchain, a particular event will be fired. And then the data will be stored in MongoDb database also.
 The status of tickets booking i.e. Usernames along with the number of tickets they have bought will be visible on front end.
-
+Structuring of project and including package.json file is in progress.
 ----------------------------------------------------------
 
 Future Enhancements:-
@@ -34,3 +34,4 @@ Future Enhancements:-
 #Direct fetching of status from Ethereum Blockchain.
 
 #Providing tokens with ticket numbers to the buyers of tickets.
+
