@@ -1,6 +1,6 @@
 # Sample Projects on Blockchain
 
-This is a very basic distributed application built using Ethereum and MEAN technologies.
+This is a basic distributed application built using Ethereum and MEAN technologies.
 ----------------------------------------------------------
 
 Description
